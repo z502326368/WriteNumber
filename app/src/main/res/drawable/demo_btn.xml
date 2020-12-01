@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--默认显示图片-->
+    <item android:drawable="@drawable/btn_demo1" android:state_focused="false"  android:state_pressed="false"/>
+    <!--按钮按下显示图片-->
+    <item android:drawable="@drawable/btn_demo2" android:state_pressed="true"/>
+    <!--长按显示图片-->
+    <item android:drawable="@drawable/btn_demo2" android:state_focused="true"/>
+</selector>

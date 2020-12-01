@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>MainActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+MainActivity.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">com.mingrisoft.writenumber; 
+ 
+</span><span class="s0">import </span><span class="s1">android.app.Activity; 
+</span><span class="s0">import </span><span class="s1">android.content.Intent; 
+</span><span class="s0">import </span><span class="s1">android.media.MediaPlayer; 
+</span><span class="s0">import </span><span class="s1">android.support.v7.app.AppCompatActivity; 
+</span><span class="s0">import </span><span class="s1">android.os.Bundle; 
+</span><span class="s0">import </span><span class="s1">android.support.v7.app.NotificationCompat; 
+</span><span class="s0">import </span><span class="s1">android.view.View; 
+</span><span class="s0">import </span><span class="s1">android.widget.Button; 
+ 
+</span><span class="s0">public class </span><span class="s1">MainActivity </span><span class="s0">extends </span><span class="s1">Activity { </span><span class="s2">//MainActivity头部</span><span class="s1"> 
+    </span><span class="s0">static boolean </span><span class="s1">isPlay = </span><span class="s0">true</span><span class="s1">;</span><span class="s2">//设置音乐播放状态</span><span class="s1"> 
+    MediaPlayer mediaplayer; 
+    Button music_btn; 
+ 
+    @Override 
+    </span><span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) { </span><span class="s2">//onCreate方法头部</span><span class="s1"> 
+        </span><span class="s0">super</span><span class="s1">.onCreate(savedInstanceState); 
+        setContentView(R.layout.activity_main); 
+        </span><span class="s2">//获取布局文件控制音乐背景按钮</span><span class="s1"> 
+        music_btn = (Button) findViewById(R.id.btn_music); 
+        PlayMusic(); 
+    }</span><span class="s2">//onCreate方法尾部</span><span class="s1"> 
+ 
+    </span><span class="s0">public void </span><span class="s1">Onplay(View v){ </span><span class="s2">//单击事件，进入选择数字界面</span><span class="s1"> 
+        </span><span class="s2">//当前界面跳转至选择数字界面</span><span class="s1"> 
+        startActivity(</span><span class="s0">new </span><span class="s1">Intent(MainActivity.</span><span class="s0">this</span><span class="s1">, SelectActivity.</span><span class="s0">class</span><span class="s1">)); 
+    } 
+ 
+    </span><span class="s0">public void </span><span class="s1">OnAbout(View v){ 
+        startActivity(</span><span class="s0">new </span><span class="s1">Intent(MainActivity.</span><span class="s0">this</span><span class="s1">, AboutActivity.</span><span class="s0">class</span><span class="s1">)); 
+    } 
+ 
+    </span><span class="s0">public void </span><span class="s1">PlayMusic(){ 
+        </span><span class="s2">//创建音乐播放器对象，并加载播放音乐</span><span class="s1"> 
+        mediaplayer=MediaPlayer.create(</span><span class="s0">this</span><span class="s1">,R.raw.main_music); 
+        mediaplayer.setLooping(</span><span class="s0">true</span><span class="s1">);</span><span class="s2">//循环播放</span><span class="s1"> 
+        mediaplayer.start();</span><span class="s2">//开始播放音乐</span><span class="s1"> 
+    } 
+    </span><span class="s2">//判断是播放还是停止播放</span><span class="s1"> 
+    </span><span class="s0">public void </span><span class="s1">OnMusic(View v){ 
+        </span><span class="s0">if</span><span class="s1">(isPlay == </span><span class="s0">true</span><span class="s1">){   </span><span class="s2">//音乐处于播放状态</span><span class="s1"> 
+            </span><span class="s0">if </span><span class="s1">(mediaplayer != </span><span class="s0">null</span><span class="s1">){   </span><span class="s2">//音乐播放器不为空</span><span class="s1"> 
+                mediaplayer.stop();    </span><span class="s2">//停止播放音乐</span><span class="s1"> 
+                </span><span class="s2">//改变按钮为停止播放音乐的按钮</span><span class="s1"> 
+                music_btn.setBackgroundResource(R.drawable.btn_music2); 
+                isPlay = </span><span class="s0">false</span><span class="s1">; 
+            } 
+        }</span><span class="s0">else  </span><span class="s1">{ 
+            PlayMusic(); 
+            music_btn.setBackgroundResource(R.drawable.btn_music1); 
+            isPlay = </span><span class="s0">true</span><span class="s1">; 
+        } 
+    } 
+}</span><span class="s2">//MainActivity尾部</span><span class="s1"> 
+</span></pre>
+</body>
+</html>

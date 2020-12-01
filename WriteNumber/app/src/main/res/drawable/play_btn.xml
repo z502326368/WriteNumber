@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--此处使用selector选择器，此处实现按钮在不同状态的不同颜色的选择-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--默认情况下的显示的图片-->
+    <item android:state_pressed="false" android:state_focused="false"  android:drawable="@drawable/btn_play1" />
+    <!--按下-->
+    <item android:state_pressed="true" android:drawable="@drawable/btn_play2"/>
+    <!--长按-->
+    <item android:state_focused="true" android:drawable="@drawable/btn_play2"/>
+</selector>
